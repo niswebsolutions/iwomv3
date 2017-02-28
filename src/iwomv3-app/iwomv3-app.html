@@ -1,0 +1,30 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iwomv3-notifybar/iwomv3-notifybar.html">
+<link rel="import" href="../../bower_components/iwomv3-toolbar/iwomv3-toolbar.html">
+
+<dom-module id="iwomv3-app">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <iwomv3-notifybar></iwomv3-notifybar>
+    <iwomv3-toolbar></iwomv3-toolbar>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'iwomv3-app',
+
+      properties: {
+        prop1: {
+          type: String,
+          value: 'iwomv3-app',
+        },
+      },
+
+    });
+  </script>
+</dom-module>

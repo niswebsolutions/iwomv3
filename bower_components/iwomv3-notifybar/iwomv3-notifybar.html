@@ -1,0 +1,58 @@
+<link rel="import" href="../polymer/polymer.html">
+<link href="../iron-icons/iron-icons.html" rel="import">
+<link href="../paper-button/paper-button.html" rel="import">
+
+<!--
+`iwomv3-notifybar`
+
+
+@demo demo/index.html 
+-->
+<dom-module id="iwomv3-notifybar">
+  <template>
+    <style>
+      :host {
+        background: #e4e4e4;
+        padding: .5em 1rem;
+        display: block;
+      }
+
+      .wrapper {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+      }
+
+      .messages {
+        font-size: .8em;
+        font-style: italic;
+        color: #333333;
+        text-align: center;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+
+      <div class="wrapper">
+        <div class="messages">Shipping: Need it quick? Orders are shipped same day as long as size is verifyed by 3pm ET M-F</div>
+      </div>
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'iwomv3-notifybar',
+
+      // properties: {
+      //   prop1: {
+      //     type: String,
+      //     value: 'iwomv3-notifybar',
+      //   },
+      // },
+
+    });
+  </script>
+</dom-module>
