@@ -1,0 +1,14 @@
+{
+  "name": "iwomv3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "deploy": "polymer build && surge -p ./build/bundled -d iwomv3.surge.sh"
+  },
+  "author": "",
+  "license": "ISC"
+}

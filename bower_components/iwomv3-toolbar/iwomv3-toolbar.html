@@ -1,4 +1,5 @@
 <link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-media-query/iron-media-query.html">
 <link rel="import" href="../app-layout/app-drawer/app-drawer.html">
 <link rel="import" href="../app-layout/app-header/app-header.html">
 <link rel="import" href="../app-layout/app-toolbar/app-toolbar.html">
@@ -9,8 +10,6 @@
 <link rel="import" href="../iron-collapse/iron-collapse.html">
 <link rel="import" href="../paper-menu/paper-menu.html">
 <link rel="import" href="../paper-tabs/paper-tabs.html">
-<link rel="import" href="../iwomv3-notifybar/iwomv3-notifybar.html">
-
 <!--
 `iwomv3-toolbar`
 
@@ -49,29 +48,36 @@
         justify-content: flex-end;
       }
     </style>
+
+    <iron-media-query query="(min-width: 600px)" query-matches="{{wide}}"></iron-media-query>
     <app-header reveals>
       <app-toolbar>
-        <paper-icon-button icon="menu" onclick="drawer.toggle()"></paper-icon-button>
+        <template is="dom-if" if="{{!wide}}">
+          <paper-icon-button icon="menu" onclick="drawer.toggle()"></paper-icon-button>
+        </template>
         <div main-title>Logo</div>
-        <paper-tabs class="desktop-tabs" selected="0" noink>
-          <template is="dom-repeat" items="{{items}}">
-            <paper-tab class="desktop-tab" link>
-              <a href="#{{item}}" tabindex="-1">{{item}}</a>
-            </paper-tab>
-          </template>
-        </paper-tabs>
+        <template is="dom-if" if="{{wide}}">
+          <paper-tabs class="desktop-tabs" selected="0" noink>
+            <template is="dom-repeat" items="{{items}}">
+              <paper-tab class="desktop-tab" link>
+                <a href="#{{item}}" tabindex="-1">{{item}}</a>
+              </paper-tab>
+            </template>
+          </paper-tabs>
+        </template>
         <paper-icon-button icon="shopping-cart"></paper-icon-button>
       </app-toolbar>
     </app-header>
-    <app-drawer id="drawer" swipe-open>
-      <paper-menu selected="0">
-        <template is="dom-repeat" items="{{items}}">
-          <a class="paper-item-link" href="#{{item}}"><paper-item>{{ item }}</paper-item></a>
-        </template>
-      </paper-menu>
-    </app-drawer>
+    <template is="dom-if" if="{{!wide}}">
+      <app-drawer id="drawer" swipe-open>
+        <paper-menu selected="0">
+          <template is="dom-repeat" items="{{items}}">
+            <a class="paper-item-link" href="#{{item}}"><paper-item>{{ item }}</paper-item></a>
+          </template>
+        </paper-menu>
+      </app-drawer>
+    </template>
     <sample-content size="10"></sample-content>
-
   </template>
 
   <script>
@@ -80,18 +86,13 @@
       is: 'iwomv3-toolbar',
 
       properties: {
-        prop1: {
-          type: String,
-          value: 'iwomv3-toolbar',
-        },
         items: {
           type: Array,
           value: function() {
             return ['Home', 'Hunting', 'Tactical', 'All Purpose Shell', 'About', 'IWOM VS'];
           }
         }
-      },
-
+      }
     });
   </script>
 </dom-module>
