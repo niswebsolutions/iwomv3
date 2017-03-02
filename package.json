@@ -7,8 +7,12 @@
     "test": "test"
   },
   "scripts": {
-    "deploy": "polymer build && surge -p ./build/bundled -d iwomv3.surge.sh"
+    "serve": "./node_modules/.bin/polyserve",
+    "deploy": "polymer build --strip && surge -p ./build/bundled -d iwomv3.surge.sh"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "polyserve": "^0.16.0"
+  }
 }

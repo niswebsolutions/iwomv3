@@ -1,0 +1,6 @@
+{
+  "entrypoint": "index.html",
+  "fragments": [
+    "src/iwomv3-app/iwomv3-app.html"
+  ]
+}

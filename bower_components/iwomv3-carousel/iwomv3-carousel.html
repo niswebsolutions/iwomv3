@@ -1,0 +1,65 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-carousel/paper-carousel.html" />
+
+<!--
+`iwomv3-carousel`
+
+
+@demo demo/index.html 
+-->
+
+<dom-module id="iwomv3-carousel">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+      .carousel-item img {
+        width: 100%;
+        height: auto;
+      }
+    </style>
+
+    <paper-carousel items="1" dotText="false">
+      <iwomv3-carousel-item image="http://unsplash.it/600/250?image=201"></iwomv3-carousel-item>
+      <iwomv3-carousel-item image="http://unsplash.it/600/250?image=202"></iwomv3-carousel-item>
+      <iwomv3-carousel-item image="http://unsplash.it/600/250?image=204"></iwomv3-carousel-item>
+    </paper-carousel>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'iwomv3-carousel',
+    });
+  </script>
+</dom-module>
+
+<dom-module id="iwomv3-carousel-item">
+  <style>
+    :host {
+      display: block;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  </style>
+  <template>
+    <div class="carousel-item" draggable="false">
+      <img src="{{image}}">
+    </div>
+  </template>
+  <script>
+    Polymer({
+      is: 'iwomv3-carousel-item',
+      properties: {
+        image: {
+          type: String
+        }
+      }
+    });
+  </script>
+</dom-module>

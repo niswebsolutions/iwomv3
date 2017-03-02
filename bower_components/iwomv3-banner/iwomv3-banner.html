@@ -1,0 +1,42 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iwomv3-carousel/iwomv3-carousel.html">
+
+<!--
+`iwomv3-banner`
+
+
+@demo demo/index.html 
+-->
+
+<dom-module id="iwomv3-banner">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      :host['wide'] {
+        margin-left: calc(-50vw + 50%);
+        margin-right: calc(-50vw + 50%);
+      }
+    </style>
+
+    <iwomv3-carousel></iwomv3-carousel>
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'iwomv3-banner',
+      
+      properties: {
+        wide: {
+          type: Boolean,
+          value: false,
+          reflectToAttribute: true
+        }
+      }
+
+    });
+  </script>
+</dom-module>
